@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@troll-cave/app-catalog": ["libs/app-catalog/src/index.ts"],
       "@troll-cave/app-orca": ["libs/app-orca/src/index.ts"]
     }
   },

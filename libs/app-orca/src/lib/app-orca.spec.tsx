@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import List from './list';
+import AppOrca from './app-orca';
 
-describe('List', () => {
+describe('AppOrca', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<List />);
+    const { baseElement } = render(<AppOrca />);
     expect(baseElement).toBeTruthy();
   });
 });

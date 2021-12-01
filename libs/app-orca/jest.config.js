@@ -1,9 +1,9 @@
 module.exports = {
-  displayName: 'app-catalog',
+  displayName: 'app-orca',
   preset: '../../jest.preset.js',
   transform: {
     '^.+\\.[tj]sx?$': 'babel-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/libs/app-catalog',
+  coverageDirectory: '../../coverage/libs/app-orca',
 };

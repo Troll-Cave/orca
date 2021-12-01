@@ -3,6 +3,7 @@
   "projects": {
     "app-catalog": "libs/app-catalog",
     "orca": "apps/orca",
+    "orca-backend": "apps/orca-backend",
     "orca-e2e": "apps/orca-e2e"
   }
 }

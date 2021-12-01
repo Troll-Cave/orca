@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "orca": "apps/orca",
+    "orca-e2e": "apps/orca-e2e"
+  }
+}

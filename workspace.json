@@ -5,6 +5,7 @@
     "app-orca": "libs/app-orca",
     "orca": "apps/orca",
     "orca-backend": "apps/orca-backend",
-    "orca-e2e": "apps/orca-e2e"
+    "orca-e2e": "apps/orca-e2e",
+    "orca-plugin-tools": "libs/orca-plugin-tools"
   }
 }

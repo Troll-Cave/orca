@@ -1,0 +1,42 @@
+{
+  "root": "libs/orca-plugin-tools",
+  "sourceRoot": "libs/orca-plugin-tools/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/orca-plugin-tools",
+        "tsConfig": "libs/orca-plugin-tools/tsconfig.lib.json",
+        "project": "libs/orca-plugin-tools/package.json",
+        "entryFile": "libs/orca-plugin-tools/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "assets": [
+          {
+            "glob": "libs/orca-plugin-tools/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/orca-plugin-tools/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/orca-plugin-tools"],
+      "options": {
+        "jestConfig": "libs/orca-plugin-tools/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

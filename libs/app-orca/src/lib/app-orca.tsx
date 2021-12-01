@@ -9,9 +9,12 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 
 import './app-orca.module.scss';
+import {AppPlugin} from "@troll-cave/orca-plugin-tools";
 
 /* eslint-disable-next-line */
-export interface AppOrcaProps {}
+export interface AppOrcaProps {
+  plugins: AppPlugin[]
+}
 
 export function AppOrca(props: AppOrcaProps) {
   const [open, setOpen] = React.useState(false);
@@ -34,7 +37,7 @@ export function AppOrca(props: AppOrcaProps) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div">
-            Orca
+            {props.plugins[0].name}
           </Typography>
         </Toolbar>
       </AppBar>

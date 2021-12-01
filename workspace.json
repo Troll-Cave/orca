@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "app-catalog": "libs/app-catalog",
     "orca": "apps/orca",
     "orca-e2e": "apps/orca-e2e"
   }

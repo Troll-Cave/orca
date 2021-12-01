@@ -1,4 +1,5 @@
-
+`nx g @nrwl/react:component list --project app-catalog`
+`nx g @nrwl/react:lib app-catalog`
 
 # Orca
 

@@ -2,6 +2,7 @@ import styles from './app.module.scss';
 
 import { ReactComponent as Logo } from './logo.svg';
 import star from './star.svg';
+import { AppCatalogListing } from "@orca/app-catalog";
 
 export function App() {
   return (
@@ -13,6 +14,7 @@ export function App() {
       <main>
         <h2>Resources &amp; Tools</h2>
         <p>Thank you for using and showing some ♥ for Nx.</p>
+        <AppCatalogListing />
         <div className="flex github-star-container">
           <a
             href="https://github.com/nrwl/nx"

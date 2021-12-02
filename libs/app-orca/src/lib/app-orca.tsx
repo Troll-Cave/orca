@@ -11,6 +11,14 @@ import ListItemText from '@mui/material/ListItemText';
 import './app-orca.module.scss';
 import {AppPlugin} from "@troll-cave/orca-plugin-tools";
 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import {AppCatalog} from "@troll-cave/app-catalog";
+
 /* eslint-disable-next-line */
 export interface AppOrcaProps {
   plugins: AppPlugin[]
@@ -54,7 +62,7 @@ export function AppOrca(props: AppOrcaProps) {
         <List>
           <ListItem button>
             <ListItemText>
-              Bro
+              <Link to="/catalog">Catalog</Link>
             </ListItemText>
           </ListItem>
           <ListItem button>
@@ -66,9 +74,9 @@ export function AppOrca(props: AppOrcaProps) {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
-        <Typography paragraph>
-          Bro
-        </Typography>
+        <Routes>
+          <Route path="/catalog" element={<AppCatalog />} />
+        </Routes>
       </Box>
     </Box>
   );

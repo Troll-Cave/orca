@@ -1,4 +1,4 @@
-import {AppBar, IconButton, Toolbar, Typography} from "@mui/material";
+import {AppBar, Button, IconButton, Toolbar, Typography} from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -18,6 +18,7 @@ import {
   Link
 } from "react-router-dom";
 import {AppCatalog} from "@troll-cave/app-catalog";
+import {useAuth0} from "@auth0/auth0-react";
 
 /* eslint-disable-next-line */
 export interface AppOrcaProps {
@@ -26,12 +27,17 @@ export interface AppOrcaProps {
 
 export function AppOrca(props: AppOrcaProps) {
   const [open, setOpen] = React.useState(false);
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   const flipDrawer = () => {
     setOpen(!open);
   };
 
   const drawerWidth = 240;
+
+  const headerButton = isAuthenticated ?
+    <Button color="inherit" onClick={() => logout()}>Logout</Button> :
+    <Button color="inherit" onClick={() => loginWithRedirect()}>Login</Button>
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -44,9 +50,10 @@ export function AppOrca(props: AppOrcaProps) {
                       onClick={flipDrawer}>
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div">
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             {props.plugins[0].name}
           </Typography>
+          {headerButton}
         </Toolbar>
       </AppBar>
       <Drawer

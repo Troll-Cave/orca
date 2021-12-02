@@ -9,7 +9,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 
 import './app-orca.module.scss';
-import {AppPlugin} from "@troll-cave/orca-plugin-tools";
+import {AppPlugin, getPlugins} from "@troll-cave/orca-plugin-tools";
 
 import {
   BrowserRouter as Router,
@@ -26,14 +26,25 @@ export interface AppOrcaProps {
 }
 
 export function AppOrca(props: AppOrcaProps) {
-  const [open, setOpen] = React.useState(false);
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
-  const flipDrawer = () => {
-    setOpen(!open);
-  };
-
   const drawerWidth = 240;
+
+  const nav = getPlugins()
+    .filter(plugin => plugin.navChecker(null, []))
+    .map((plugin, index) => (
+      <ListItem key={index} button>
+        <ListItemText>
+          <Link to={plugin.rootNav || '/'}>{plugin.name}</Link>
+        </ListItemText>
+      </ListItem>
+    ));
+
+  const routes = getPlugins()
+    .filter(plugin => plugin.navChecker(null, []))
+    .map((plugin, index) => (
+      <Route key={index} path={plugin.rootNav || '/'} element={plugin.rootElement} />
+    ));
 
   const headerButton = isAuthenticated ?
     <Button color="inherit" onClick={() => logout()}>Logout</Button> :
@@ -46,12 +57,11 @@ export function AppOrca(props: AppOrcaProps) {
           <IconButton size="large"
                       edge="start"
                       color="inherit"
-                      aria-label="menu"
-                      onClick={flipDrawer}>
+                      aria-label="menu">
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            {props.plugins[0].name}
+            Orca
           </Typography>
           {headerButton}
         </Toolbar>
@@ -59,7 +69,6 @@ export function AppOrca(props: AppOrcaProps) {
       <Drawer
         variant="permanent"
         anchor="left"
-        open={open}
         sx={{
           width: drawerWidth,
           flexShrink: 0,
@@ -67,22 +76,13 @@ export function AppOrca(props: AppOrcaProps) {
         }}>
         <Toolbar />
         <List>
-          <ListItem button>
-            <ListItemText>
-              <Link to="/catalog">Catalog</Link>
-            </ListItemText>
-          </ListItem>
-          <ListItem button>
-            <ListItemText>
-              Whot
-            </ListItemText>
-          </ListItem>
+          {nav}
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
         <Routes>
-          <Route path="/catalog" element={<AppCatalog />} />
+          {routes}
         </Routes>
       </Box>
     </Box>

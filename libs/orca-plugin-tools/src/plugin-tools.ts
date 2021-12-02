@@ -1,5 +1,10 @@
+import {ReactElement} from "react";
+
 export interface AppPlugin {
-  name: string
+  name: string;
+  navChecker: (parent: string | null, annotations: string[]) => boolean;
+  rootNav?: string;
+  rootElement?: ReactElement
 }
 
 const plugins: AppPlugin[] = [];

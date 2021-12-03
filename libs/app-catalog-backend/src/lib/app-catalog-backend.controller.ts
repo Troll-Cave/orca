@@ -6,7 +6,8 @@ export class AppCatalogBackendController {
   constructor(private appCatalogBackendService: AppCatalogBackendService) {}
 
   @Get()
-  getExample() {
+  async getExample() {
+    await this.appCatalogBackendService.testDatabase();
     return {
       message: "hi"
     };

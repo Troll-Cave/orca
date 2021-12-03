@@ -2,7 +2,9 @@
   "version": 2,
   "projects": {
     "app-catalog": "libs/app-catalog",
+    "app-catalog-backend": "libs/app-catalog-backend",
     "app-orca": "libs/app-orca",
+    "data-backend": "libs/data-backend",
     "orca": "apps/orca",
     "orca-backend": "apps/orca-backend",
     "orca-e2e": "apps/orca-e2e",

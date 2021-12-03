@@ -16,7 +16,11 @@
     "baseUrl": ".",
     "paths": {
       "@troll-cave/app-catalog": ["libs/app-catalog/src/index.ts"],
+      "@troll-cave/app-catalog-backend": [
+        "libs/app-catalog-backend/src/index.ts"
+      ],
       "@troll-cave/app-orca": ["libs/app-orca/src/index.ts"],
+      "@troll-cave/data-backend": ["libs/data-backend/src/index.ts"],
       "@troll-cave/orca-plugin-tools": ["libs/orca-plugin-tools/src/index.ts"]
     }
   },

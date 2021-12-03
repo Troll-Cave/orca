@@ -8,8 +8,8 @@ export interface ComponentAttributes {
   id?: string;
   name: string;
   component_type?: string;
-  annotations: any;
-  data: any;
+  annotations: unknown;
+  data: unknown;
 }
 
 export class ComponentModel extends Model<ComponentAttributes> implements ComponentAttributes
@@ -17,8 +17,8 @@ export class ComponentModel extends Model<ComponentAttributes> implements Compon
   id!: string;
   name!: string;
   component_type!: string;
-  annotations!: any;
-  data!: any;
+  annotations!: unknown;
+  data!: unknown;
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -64,6 +64,7 @@ export class AppCatalogBackendService {
     });*/
     const data = await ComponentModel.findAll({});
     data[0].name = "";
+
     console.log(data.map(x => x.toJSON()));
   }
 

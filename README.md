@@ -2,8 +2,8 @@
 `nx g @nrwl/react:lib app-catalog`
 `nx run orca:serve`
 
-`nx generate library app-orca --publishable --importPath @troll-cave/app-orca`
-
+`nx generate library app-orca --publishable --importPath @troll-cave/app-orca --routing true`
+`nx g @nrwl/nest:library --publishable --controller true --service true --importPath @troll-cave/app-catalog-backend`
 # Orca
 
 This project was generated using [Nx](https://nx.dev).

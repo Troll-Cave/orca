@@ -9,8 +9,8 @@ export interface AppPlugin {
 
 const plugins: AppPlugin[] = [];
 
-export function addPlugin(factory: (config: Record<string, string>) => AppPlugin, config: Record<string, string> = {}): void {
-  plugins.push(factory(config));
+export function addPlugin(plugin: AppPlugin): void {
+  plugins.push(plugin);
 }
 
 export function getPlugins(): AppPlugin[] {

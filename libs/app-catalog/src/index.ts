@@ -3,7 +3,7 @@ import AppCatalog from "./lib/app-catalog";
 
 export * from './lib/app-catalog';
 
-export function makeCatalogPlugin(config: Record<string, string>): AppPlugin {
+export function makeCatalogPlugin(): AppPlugin {
   const element = AppCatalog({});
   return {
     name: 'App Catalog',

@@ -7,7 +7,8 @@ import { Auth0Provider } from "@auth0/auth0-react";
 
 // basically this should be all you need to set up is these configs
 // most will likely not need any extra config (likely just auth and axios need extra bits)
-addPlugin(makeCatalogPlugin);
+addPlugin(makeCatalogPlugin());
+
 console.log(window.location.origin)
 export function App() {
   return (

@@ -40,11 +40,16 @@ export function AppOrca(props: AppOrcaProps) {
       </ListItem>
     ));
 
-  const routes = getPlugins()
+  const pluginRoutes = getPlugins()
     .filter(plugin => plugin.navChecker(null, []))
     .map((plugin, index) => (
       <Route key={index} path={plugin.rootNav || '/'} element={plugin.rootElement} />
     ));
+
+  const rootElement = (
+    <div>Root Element</div>
+  )
+  const routes = [<Route key={'root'} path={'/'} element={rootElement} />, ...pluginRoutes];
 
   const headerButton = isAuthenticated ?
     <Button color="inherit" onClick={() => logout()}>Logout</Button> :
@@ -61,7 +66,7 @@ export function AppOrca(props: AppOrcaProps) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Orca
+            <Link to={'/'}>Orca</Link>
           </Typography>
           {headerButton}
         </Toolbar>

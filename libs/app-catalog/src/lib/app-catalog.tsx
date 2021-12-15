@@ -1,7 +1,10 @@
 import './app-catalog.module.scss';
+import {ReactElement} from "react";
 
 /* eslint-disable-next-line */
-export interface AppCatalogProps {}
+export interface AppCatalogProps {
+  editElement: ReactElement | null;
+}
 
 export function AppCatalog(props: AppCatalogProps) {
   return (
